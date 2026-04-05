@@ -139,7 +139,6 @@ function handleChoice(productId, choiceId) {
 
   var qtyElId = 'qty-' + productId;
 
-  // CLEAR FIRST ✅ (IMPORTANT)
   actionDiv.innerHTML = '';
 
   // Quantity controls
@@ -219,7 +218,7 @@ function changeQty(productId, delta) {
 
  function pickFlavors(productId, choiceId) {
   var product = products.find(function(p) { return p.id === productId; });
-  var choice = product.choices.find(function(c) { return c.id === choiceId; }); // ✅ ADD THIS
+  var choice = product.choices.find(function(c) { return c.id === choiceId; }); 
 
   var qtyEl = document.getElementById('qty-' + productId);
   var qty = qtyEl ? parseInt(qtyEl.textContent) : 1;
@@ -227,7 +226,7 @@ function changeQty(productId, delta) {
   flavorPicking = {
     productId: productId,
     choiceId: choiceId,
-    max: choice.maxFlavors || 1,   // ✅ DITO ANG FIX
+    max: choice.maxFlavors || 1,   
     selected: [],
     qty: qty,
     productName: product.name
